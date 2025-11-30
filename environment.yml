@@ -1,0 +1,23 @@
+name: detox_tatar
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python>=3.10,<3.12
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4  # GPU build for CUDA 12.4 compatible drivers
+  - pip
+  - pip:
+      - transformers>=4.45.0
+      - datasets>=2.18.0
+      - accelerate>=1.2.0
+      - evaluate>=0.4.2
+      - sentencepiece>=0.1.99
+      - sentence-transformers>=3.0.1
+      - sacrebleu>=2.4.3
+      - numpy
+      - pandas
+      - scikit-learn

@@ -1,0 +1,7 @@
+{
+  "model_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "layer_idx": 31,
+  "n_toxic": 500,
+  "n_nontoxic": 500,
+  "max_length": 128
+}
