@@ -1,4 +1,4 @@
-# DETOX_TATAR: Tatar Detoxification Toolkit
+# DETOX_TATAR: Tatar Detoxification
 
 Detoxification pipelines and helpers for Tatar (tt). Core idea:
 - Clean noisy inputs (explicit+obfuscated profanity removal).
@@ -55,14 +55,14 @@ All methods produce a submission TSV (ID, tat_toxic, tat_detox1) and a ZIP.
     --input_tsv DETOX_TATAR/data/test_inputs.tsv --output_dir DETOX_TATAR/outputs_clean_mpd_tsv \
     --translator auto --threshold 0.5 --batch_size 16 --zip
 
-### D) Translate → LLaMA Detox → Back (no cleaner)
+### D) Translate → LLaMA Detox → Back 
 - Theory: direct cross‑lingual editing: TT→EN, detox by LLaMA with an English prompt (keep continuation only), EN→TT back.
 - Run:
   - CUDA_VISIBLE_DEVICES=1 python DETOX_TATAR/translate_llama_detox.py \
     --input_tsv DETOX_TATAR/data/dev_inputs.tsv --output_dir DETOX_TATAR/outputs_llama_xlat \
     --batch_size 2 --fp16 true --zip
 
-### E) Diff‑in‑Means Steering (no fine‑tuning)
+### E) Diff‑in‑Means Steering
 - Theory: compute Δ = mean(non‑toxic) − mean(toxic) of hidden states at a layer; during generation add −α·Δ at that layer to bias away from toxic directions.
 - Train vector:
   - CUDA_VISIBLE_DEVICES=1 python DETOX_TATAR/diff_steering_train.py \
