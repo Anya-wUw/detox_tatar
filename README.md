@@ -98,7 +98,7 @@ LoRA is optional, remove `--lora_adapter` if you want to use the base model only
 
 ---
 
-### C) Clean → Translate → Detox (EN) → Back-translate (TT)
+### 🌟 C) Clean → Translate → Detox (EN) → Back-translate (TT) (Best from all approaches)
 
 **Idea**
 After cleaning and gating, Tatar text is translated to English, detoxified in English with an MPD style seq2seq model, then translated back to Tatar.
